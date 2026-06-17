@@ -23,7 +23,7 @@ variable "environment" {
 variable "project" {
   description = "Nombre corto del proyecto. Se usa como prefijo en los nombres de recursos."
   type        = string
-  default     = "ormazabal-ia"
+  default     = "project-ia"
 }
 
 variable "tags" {

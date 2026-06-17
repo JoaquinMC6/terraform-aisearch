@@ -1,7 +1,7 @@
 location           = "West Europe"
 location_functions = "West Europe"
 environment        = "dev"
-project            = "ormazabal-app"
+project            = "project-app"
 tags               = {}
 
 
