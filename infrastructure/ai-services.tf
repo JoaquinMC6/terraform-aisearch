@@ -39,6 +39,22 @@ resource "azurerm_ai_foundry_project" "ingestion" {
   tags = local.common_tags
 }
 
+# ─── RBAC: Foundry Project → Search Service ─────────────────────────────────
+# Grants the Foundry Project's managed identity access to the AI Search
+# resource so it can create/query indexes and manage the search service.
+resource "azurerm_role_assignment" "foundry_search_index_contributor" {
+  scope                = azurerm_search_service.main.id
+  role_definition_name = "Search Index Data Contributor"
+  principal_id         = azurerm_ai_foundry_project.ingestion.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "foundry_search_service_contributor" {
+  scope                = azurerm_search_service.main.id
+  role_definition_name = "Search Service Contributor"
+  principal_id         = azurerm_ai_foundry_project.ingestion.identity[0].principal_id
+}
+
+
 
 # ─── Model deployments ────────────────────────────────────────────────────────
 
