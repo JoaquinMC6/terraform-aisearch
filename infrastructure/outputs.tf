@@ -51,13 +51,13 @@ output "chat_deployment_name" {
 }
 
 output "foundry_hub_id" {
-  description = "Reserved for future use when upgrading to provider >= 4.14 with azurerm_ai_foundry."
-  value       = null
+  description = "Resource ID of the Azure AI Foundry Hub."
+  value       = azurerm_ai_foundry.main.id
 }
 
 output "foundry_project_id" {
-  description = "Reserved for future use when upgrading to provider >= 4.14 with azurerm_ai_foundry_project."
-  value       = null
+  description = "Resource ID of the Azure AI Foundry Project."
+  value       = azurerm_ai_foundry_project.ingestion.id
 }
 
 # ─── ACR ─────────────────────────────────────
